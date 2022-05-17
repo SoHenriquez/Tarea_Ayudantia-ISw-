@@ -101,8 +101,7 @@
             </div>
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-5"><?php  if(isset($_GET['sumbit']) && !empty($_GET['sumbit']) && $_GET['valor']){
-                $idImagen = 3;    
+                <div class="col-5"><?php  if(isset($_GET['sumbit']) && !empty($_GET['sumbit']) && $_GET['valor']){  
                 $idImagen = $_GET['valor'];
                 $Consultasql2 = "SELECT url FROM imagenes WHERE id = $idImagen ;" ;
                 $consulta2 = mysqli_query($con,$Consultasql2);
