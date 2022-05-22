@@ -1,5 +1,4 @@
-<?php include('../conexion/conexion.php')?>
-<?php include('../conexion/buscador.php')?>
+
 <html>
 
 <head>
@@ -26,8 +25,11 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    
-    <title>Tarea</title>
+    <!-- Font awesome 2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>CRUD</title>
 </head>
 
 <body>
@@ -62,58 +64,17 @@
                     </div>
                 </div>
             </div>
-                
+            
             </section>
-            <div class="container col-5">
-            <table class="table table-striped ">
-                <tr class="bg-primary" style="color:white; ">
-                    <th >ID</th>
-                    <th >URL</th>
-                </tr>
-                <?php if($consulta): foreach($consulta as $row):?>
-                <tr>
-                    
-                    <td><?php echo $row['id']?> </td>
-                    <td><?php echo $row['url'] ?> </td>
-                    
-
-                </tr>
-                <?php endforeach;endif; ?>
-            </table>
-            <form action="index.php" method="GET">
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="form-control col-7">
-                        <label for="">Ingresar ID de imagen</label>
-                        
-                    </div>
-                    <div class="col-4">
-                        <input type="number" min="1" max="10" placeholder="id" name="valor" require>
-                        <input type="submit" name="sumbit" value="ver">
-                    </div>
-                </div>
-                
-                
-            </form>
+            <div>
+        <a class="btn btn-primary "  href="../create/create.php">Crear</a>
+        <a class="btn btn-primary "  href="../listar/read.php">Leer</a>
+    </div>
             
            
             
             </div>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-5"><?php  if(isset($_GET['sumbit']) && !empty($_GET['sumbit']) && $_GET['valor']){  
-                $idImagen = $_GET['valor'];
-                $Consultasql2 = "SELECT url FROM imagenes WHERE id = $idImagen ;" ;
-                $consulta2 = mysqli_query($con,$Consultasql2);
-                $dato = $consulta2->fetch_assoc();
-                $Imagen = $dato["url"];
-
-                echo"<img src=".$Imagen." alt='el gato' style='width:300px;height:300px;'>";
-                
-
-                } ?>
-                </div>
-            </div>
+            
             
 
 
@@ -123,7 +84,7 @@
         </div>
         </div>
     </div>
-
+             
     <!-- Optional JavaScript -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
